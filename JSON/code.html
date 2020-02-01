@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title> Ananya Sharma HW4 </title>
+	<script type="text/javascript">
+		function JSONread(de)
+		{
+			var fileName = de.fileName.value;
+                if (fileName == "" || fileName == null || fileName == undefined)
+                {
+                    alert("Please enter file name!");
+                } 
+                else 
+                {
+                    var xmlrequest = null, jsonDoc = null, hWin = null;
+                    
+                    if (window.XMLHttpRequest) 
+                    {
+                        xmlrequest = new XMLHttpRequest();
+                    } 
+                    else 
+                    {
+                        xmlrequest = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    
+                    xmlrequest.open("GET", fileName, false);
+                    
+                    try {	
+			 	       	xmlrequest.send();
+			 	       	if(xmlrequest.readyState==4 && xmlrequest.status==404 ) 
+			 	       	{
+                           alert("We couldn't find the file you are looking for!");
+                           return;
+                        }
+                        
+                        jsonDoc = xmlrequest.responseText;
+                        
+                        if(jsonDoc.length==0) 
+                        {
+                            alert("This file is Empty!");
+                            return;
+                        }
+
+                        jsonobj = JSON.parse(jsonDoc);       
+                    } catch(err) {
+                        alert("Please enter a valid JSON file name!");
+                        return;
+                    }
+                    
+                    if (window.ActiveXObject) 
+                    { 
+                        if (jsonObj.parseError.errorCode != 0) 
+                        {
+                            alert("Error parsing JSON!!")
+                        } else { 
+                            displayCars(jsonobj);
+                        }
+                    } 
+                    else 
+                    { 
+                        displayCars(jsonobj);
+                    } 
+                }
+         
+            }
+        
+		function displayCars(jsonobj)
+		{
+			var headerData = jsonobj.Mainline.Table.Header.Data;
+                var data = jsonobj.Mainline.Table.Row;
+                if (data == null || data == "" || data == undefined || headerData == null || headerData == "" || headerData == undefined) 
+                {
+                    alert("Empty Data, Please enter valid file name!");
+                    return;
+                }
+                html = "<html><head><title>Largest Manufacturers by Production (2017)</title></head><body><table border='2' width='1255'><tr>";
+	
+                for(var i=0; i<headerData.length; i++) 
+                {
+                    html += "<th>" + headerData[i] + "</th>";
+                }
+                html += "</tr>";
+	
+                for(row in data) 
+                {
+            
+                    html += "<tr>";
+                    var car_data = data[row];
+                    
+                    for(car_key in car_data) {
+                        
+                        if(car_data[car_key] == null || car_data[car_key] == "" || car_data[car_key] == undefined) 
+                        {
+                            html += "<td style='height:24px'></td>";
+                            continue;
+                        }
+			
+                        if(car_key =="Hubs") 
+                        {
+                            var hub = car_data[car_key];
+                            for(innerdata in hub) {
+                                if(hub[innerdata] == null) 
+                                {
+                                    html += "<td style='height:23px'></td>";
+                                    continue;
+                                }
+                                if(innerdata == "Hub") 
+                                {
+                                    var hdata = hub[innerdata];
+                                    html += "<td style='width:640px;'><ul>"
+                                    if(hdata.length ==0) 
+                                    {
+                                        html += "<p>"+" "+"</p>";
+                                    } else 
+                                    {		
+                                        html += "<li><b>"+hdata[0]+"</b></li>";
+                                        for(i=1; i<hdata.length; i++) 
+                                        {
+                                            html += "<li>" + hdata[i] + "</li>";
+                                        }
+                                    }
+                                    html += "</ul></td>";
+                                } 
+                            else 
+                            {
+                                    html += "<td></td>";
+                            }
+                          }
+							
+                        } 
+                        else if(car_key == "HomePage") 
+                        {
+                            html += "<td style='width:60px; height:180px;'><a href='" + car_data[car_key] + "'>" + car_data[car_key] + "</a></td>";
+                        } 
+                        else if(car_key == "Logo") 
+                        {
+                            html += "<td style='width:130px;height:180px;'><img src='" + car_data[car_key] + "' style='display:block; width:100%; height:100%;'></td>";
+                        } 
+                        else if(car_key == "Rank") 
+                        {
+                            html += "<td style='width:20px;height:180px;'>" + car_data[car_key] + "</td>" ;
+                        } 
+                        else if(car_key == "Group") 
+                        {
+                            html += "<td style='width:87px;height:180px;word-break: break-all;'>" + car_data[car_key] + "</td>" ;
+                        } 
+                        else if(car_key == "Vehicles") 
+                        {
+                            html += "<td style='width:75px;height:180px;word-break: break-all;'>" + car_data[car_key] + "</td>" ;
+                        } 
+                        else 
+                        {
+                            html += "<td style='width:30px;height:180px;word-break: break-all;'>" + car_data[car_key] + "</td>" ;
+                        }
+                        
+                    }
+                    
+                    html += "</tr>"
+                    
+                }
+                
+                html += "</table></body></html>";
+                hWin = window.open("", "WebTech_HW_4", "height=950,width=1265");
+                hWin.document.write(html); 
+                hWin.document.close(); 
+            }
+            
+		</script>
+
+		<style type="text/css">
+            
+            .heading {
+                text-align: center;
+                padding-top: 150px;
+                margin-bottom: -4px;
+
+            }
+            
+            .form-element {
+                text-align: center;
+                padding-top: 20px;
+            }
+        
+        </style>
+</head>
+<body>
+	<h3 class="heading">Enter URL for largest manufacturers by production (2017) List JSON File </h3>
+	<form name="filmform" method="POST" class="form-element" > 
+       <input type="text" name='fileName' maxlength="255" size="22" /> 
+		<br> <br> 
+        <input type="button" name="submit" value="Submit Query" style="background-color: rgb(240,240,240);border-radius: 3.5px;border-width: 1px;border-color: rgb(176,176,176)" onClick="JSONread(this.form)" > 
+	</form> 
+</body>
+</html>
