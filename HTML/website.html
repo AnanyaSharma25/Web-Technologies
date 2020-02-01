@@ -1,0 +1,495 @@
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cardo&display=swap" rel="stylesheet">
+	<style type="text/css">
+
+
+		body
+		{
+
+			overflow-x: hidden;
+		}
+
+
+		.prlx {
+			min-height: 500px;
+			overflow: hidden;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 1266px 1270px;
+			text-align: "right";
+		}
+
+
+		.bg1 {
+			background-image: url("http://csci571.com/hw/hw3/images/coffee2.jpg");
+			background-position: 5px -80px;
+			overflow: hidden;
+			width: 1264px;
+		}
+
+
+		.bg2 {
+			background-image: url("http://csci571.com/hw/hw3/images/coffee1.jpg");
+			overflow: hidden;
+			background-position: 5px;
+			width: 1262.5px;
+			background-size: cover;
+		}
+
+
+		.migi {
+			overflow: hidden;
+			background-color: white;
+			position: fixed;
+			top: 0;
+			width: 500px;
+			color: #800080;
+			display: flex;
+			padding: 2px 10px;
+			left: 0px;
+			text-indent: 170px;
+		}
+
+
+		.navbar {
+			overflow: hidden;
+			background-color: white;
+			position: fixed;
+			top: 0;
+			right: 20px;
+			left: 470px;
+			width: 650px;
+			color: #800080;
+			display: flex;
+			padding: 11px 130px;
+			text-indent: 120px;
+		}
+
+
+		.main {
+			margin-top: 75px;
+			/* Add a top margin to avoid content overlay */
+		}
+
+
+
+		.img {
+			background-color: #ffffff;
+			width: 460px;
+			height: 230px;
+			padding: 10px;
+			right: 20px;
+			left: 470px;
+			margin-left: 400px;
+			margin-top: 105px;
+			overflow: hidden;
+		}
+
+
+
+		.img1 {
+			margin-left: 25px;
+			margin-bottom: 30px;
+			margin-top: 25px;
+			background-size: 150px 30px;
+			right: 20px;
+			left: 470px;
+			overflow: hidden;
+		}
+
+
+		.indent {
+			padding-left: 170px;
+			margin-top: -210px;
+			line-height: 2.5em;
+		}
+
+
+		.C1A .column {
+			border: 0;
+			height: 660px;
+
+		}
+
+
+		.C1A .column p {
+			float: left;
+			margin: 260px 0 0 50px;
+			line-height: 30px;
+			font-size: 15px;
+		}
+
+
+		.C1A .column p span {
+			font-weight: bold;
+		}
+
+
+		.column {
+			float: left;
+			column-width: 421px;
+
+		}
+
+
+		.row:after {
+			content: "";
+			display: table;
+			clear: both;
+			vertical-align: middle;
+		}
+
+
+
+		.c1 {
+			border-style: solid;
+			border-color: #5098ba;
+			background-color: #5098ba;
+		}
+
+
+		.c2 {
+			border-style: solid;
+			border-color: #48267c;
+			background-color: #48267c;
+		}
+
+
+		.c3 {
+			border-style: solid;
+			border-color: #9a69c2;
+			background-color: #9a69c2;
+		}
+
+
+
+
+		.font1 {  /* for submit button */	
+			color: white;
+			font-family: "Raleway", sans-serif;
+		}
+
+
+		.font2{	 /*for contact me page*/			
+			color: #4b0082;
+			font-family: "Raleway", sans-serif;
+		}
+
+		.font3{	/*navbar */
+			color: #4b0082;
+			font-family: "Raleway", sans-serif;
+			font-size: 16px;
+		}
+
+
+		.font4{ /*migi*/
+			color: #4b0082;
+			font-family: "Slabo", serif;
+			font-size: 23px;
+		}
+
+		.font5 {
+			color: #4b0082;
+			font-family: "Open Sans", sans-serif;
+		}
+
+
+		.font6 {
+			color: white;
+			font-family: "Raleway", sans-serif;
+			font-size: 16px;
+			text-align: left;
+			text-indent: 0px;
+		}
+
+
+		.font7 {
+			color: white;
+			font-family: 'Cardo', serif;
+			font-weight: lighter;
+			font-size: 20px;
+			font-style: oblique;
+		}
+
+
+		hr {
+			display: block;
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+			margin-left: auto;
+			margin-right: 300px;
+			border-style: inset;
+			border-width: 2px;
+			width: 60px;
+			color: #48267c;
+			margin-top: 30px;
+		}
+
+
+		.pz1 {
+			width: 150px;
+			height: 190px;
+			background-image: url(http://csci571.com/hw/hw3/images/face.jpg);
+			background-size: 150px 220px;
+			background-position: 150px 205px;
+		}
+
+
+		.contactForm {
+			float: left;
+			width: 370px;
+			margin-top: 45px;
+		}
+
+
+		.conct_us {
+			width: 950px;
+			margin-left: 140px;
+		}
+
+
+		.fontclass {
+			font-family: "Raleway", sans-serif;
+			color: #fff
+		}
+
+
+		.GetInTouch {
+			float: left;
+			width: 570px;
+			font-family: "Raleway", sans-serif;
+			color: #4b0082
+		}
+
+
+		.contactForm input,
+		.contactForm textarea {
+			width: 430px;
+			padding: 6px;
+			margin-bottom: 5px;
+			border-color: #4b0082;
+			border-width: 1px;
+			color: #4b0082;
+			font-family: "Raleway", sans-serif;
+			font-size: 14px;
+			resize: none;
+			border-style: solid;
+			border-width: 1.5px;
+		}
+
+
+		::-webkit-input-placeholder {
+			/* Edge */
+			color: #48267c;
+		}
+
+
+		:-ms-input-placeholder {
+			/* Internet Explorer 10-11 */
+			color: #48267c;
+		}
+
+
+		::placeholder {
+			color: #48267c;
+		}
+
+
+		.contactForm button {
+			float: right;
+			height: 35px;
+			padding: 10px -5px;
+			width: 100px;
+			font-size: 17px;
+			font-style: italic;
+			margin-top: 2px;
+			margin-right: 0px;
+			font-weight: lighter;
+		}
+
+
+		.main_contact {
+			float: left;
+			margin: 100px 0;
+			right: 70px;
+		}
+
+
+		.helloText {
+			background-color: #4b0082;
+			width: 1262.5px;
+			padding-top: -350px;
+
+		}
+
+
+		.helloText .fontclass {
+			height: 350px;
+			margin: 0px 0 0 0;
+			padding: 90px 100px;
+			width: 950px;
+			margin: 0px 40px;
+			padding-top: -100px;
+		}
+
+
+
+		.helloText .fontclass h3 {
+			font-size: 42px;
+			line-height: 50px;
+			font-weight: normal;
+		}
+
+
+		.cm {
+			font-size: 46px;
+			font-family: "Raleway", sans-serif;
+		}
+	</style>
+
+
+	<body>
+
+		<div class="migi font4">
+			<p>
+				<span style="font-weight: lighter;font-style: oblique;">
+					Migi Bell
+				</span>
+			</p>
+		</div>
+
+		<div class="navbar font3">
+			<p> HOME &nbsp;
+				<span style="color: #acafb7"> PORTFOLIO &nbsp; ABOUT ME &nbsp; CONTACT ME</span>
+			</p>
+		</div>
+
+
+		<div class="bg1 prlx main">
+			<div class=" img">
+				<div class="img1">
+					<div class="pz1"> </div>
+					<div class="indent">
+						<p align="left" style="color: #48267c;font-size: 20px">
+							<span style="line-height: 1em;font-weight:lighter;font-style: oblique;">
+								Migi Bell
+							</span>
+							<br>
+							<span class="font3">
+								<span style="font-size: 35px;font-weight: lighter">FOOD </span>
+								<br>
+								<span style="font-weight: bold;font-size: 50px"> STYLIST. </span>
+								<br>
+								<hr>
+								<span style="font-family: 'Raleway', sans-serif;font-size: 20px; color: #48267c;line-height: 3.5em;font-weight: lighter;">
+									PORTFOLIO > </span>
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div id="parent" class="row font6 C1A" style="width:1264px">
+			<div id="child" class="column c1 ">
+				<p>PROJECTS
+					<br>
+					<span style="font-size: 20px;">PROJECTS ></span>
+				</p>
+			</div>
+			<div id="child" class="column c2 ">
+				<p>PROJECTS
+					<br>
+					<span style="font-size: 20px;">EDITORIAL ></span>
+				</p>
+			</div>
+			<div id="child" class="column c3 ">
+				<p>PROJECTS
+					<br>
+					<span style="font-size: 20px;">INNOVATIVE ></span>
+				</p>
+			</div>
+		</div>
+
+
+		<div class="prlx bg2"> </div>
+		<div class="helloText ">
+			<div class="fontclass">
+				<p>
+					<b>
+						<span style="font-size: 17px;font-weight: bold;"> -Hello- </span>
+					</b>
+					<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+						aliqua.
+					</h3>
+				</p>
+			</div>
+		</div>
+		</div>
+
+
+		<section class="conct_us">
+			<div class="main_contact">
+				<div class="GetInTouch">
+					<b>-Get In Touch- </b>
+					<br>
+					<br>
+					<span class="cm" style="font-family: 'Raleway',sans-serif;">Contact Me</span>
+					<br>
+					<span style="font-weight:lighter;font-family: 'Raleway',sans-serif;">700 Morey Francois Street, San Francisco, CA 94148
+						<br> info@lorem.com | Tel: 123-555-1212
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br> &#169 2023 by Migi Bell. </span>
+				</div>
+				<div class="contactForm">
+					<br>
+					<span style="margin-left: -60px">
+						<textarea rows="1" cols="50"> Name
+		</textarea>
+					</span>
+
+					<br>
+					<span style="margin-left: -60px">
+						<textarea rows="1" cols="50" placeholder="Type"> Email
+		</textarea>
+					</span>
+
+					<br>
+					<span style="margin-left: -60px">
+						<textarea rows="1" cols="50" placeholder="Type"> Phone
+		</textarea>
+					</span>
+
+					<br>
+					<span style="margin-left: -60px">
+						<textarea rows="6" cols="50" placeholder="Type"> Type your message here...
+		</textarea>
+					</span>
+					<br>
+					<button type="submit" class="c2 font7">
+						Submit 
+					</button>
+				</div>
+			</div>
+		</section>
+
+
+	</body>
+</head>
+</html>
