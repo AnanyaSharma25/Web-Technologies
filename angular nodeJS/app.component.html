@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Weather Search</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script type="text/javascript">
+</script>
+</head>
+<body>
+
+<div class="container">
+  <div class="col-md-12 col-sm-12" class="wSearch mx-auto">
+  <form 
+   data-toggle="validator" name="form1" [formGroup]="formGroup" (validSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="col-md-12 col-sm-12" class="wSearch1 mx-auto">
+      <h2>Weather Search </h2>
+
+
+    <div class="form-inline">
+    <div class="form-group">
+      <label class="col-md-4" for="street">Street: <span class='required'>*</span></label>
+      <input type="text" ngModel  class="form-control col-md-6" id="street" 
+      placeholder="Enter Street Name" name="street" 
+      (change)="doSomething(this.value)" required
+      formControlName="street"
+      
+      >
+      <bfv-messages></bfv-messages>
+    </div>
+    </div>
+    <div class="form-inline">
+    <div class="form-group">
+      <label for="city" class="col-md-4">City: <span class='required'>*</span></label>
+      <input type="text" ngModel  class="form-control col-md-6" id="city" placeholder="Enter City Name" name="city" (change)="doSomething(this.value)" required 
+      formControlName="city"
+      >
+      <bfv-messages></bfv-messages>
+    </div>
+    </div>
+
+    <div class="form-inline">
+      <div class="form-group">
+      <label for="sel1" class="col-md-4">State: <span class='required'>*</span></label>
+      <select class="form-control" ngModel  id="state" (change)="doSomething(this.value)" required formControlName="state">
+        <option value="">Select State</option>
+        <option>Alabama</option>
+        <option>Alaska</option>
+        <option>Arizona</option>
+        <option>Arkansas</option>
+        <option>California</option>
+        <option>Colorado</option>
+        <option>Connecticut</option>
+        <option>Delaware</option>
+        <option>District Of Columbia</option>
+        <option>Florida</option>
+        <option>Georgia</option>
+        <option>Hawaii</option>
+        <option>Idaho</option>
+        <option>Illinois</option>
+        <option>Indiana</option>
+        <option>Iowa</option>
+        <option>Kansas</option>
+        <option>Kentucky</option>
+        <option>Louisiana</option>
+        <option>Maine</option>
+        <option>Maryland</option>
+        <option>Massachusetts</option>
+        <option>Michigan</option>
+        <option>Minnesota</option>
+        <option>Mississippi</option>
+        <option>Missouri</option>
+        <option>Montana</option>
+        <option>Hawaii</option>
+        <option>Nebraska</option>
+        <option>Nevada</option>
+        <option>New Hampshire</option>
+        <option>New Jersey</option>
+        <option>New Mexico</option>
+        <option>New York</option>
+        <option>North Carolina</option>
+        <option>North Dakota</option>
+        <option>Ohio</option>
+        <option>Oklahoma</option>
+        <option>Oregon</option>
+        <option>Pennsylvania</option>
+        <option>Rhode Island</option>
+        <option>South Carolina</option>
+        <option>South Dakota</option>
+        <option>Tennessee</option>
+        <option>Texas</option>
+        <option>Utah</option>
+        <option>Vermont</option>
+        <option>Virginia</option>
+        <option>Washington</option>
+        <option>West Virginia</option>
+        <option>Wisconsin</option>
+        <option>Wyoming</option>
+      </select>
+      <bfv-messages></bfv-messages>
+    </div>
+    </div>
+
+    <div class="checkbox">
+      <label  class="col-md-4"><input type="checkbox" name="remember"
+        formControlName="remember"
+        id="currentlocation" ngModel > Current Location </label>
+    </div>
+    <div class="col-md-12 col-sm-12 mb-2 searbtn">
+        <button type="SUBIT" name="submit" class="btn btn-light " style="margin-right:10px " value = "sumbit" ><i class="fas fa-search"></i>Search</button>
+        <button type="clear" name="clear" class="btn btn-light " value = "clear"  (click)="onReset()"><i class="fas fa-bars"></i>Clear</button>
+    </div>
+
+  </div>
+  </form>
+  </div>
+  
+  <div class="col-md-12 col-sm-12 mt-4 mx-auto text-center">
+      <button type="submit"  (click)="onResult()" class="btn btn-light mr-4" id = "submit" >Results</button>
+      <a  [routerLink]="['/favorite']" routerLinkActive="active"  type="clear" name="clear" class="btn btn-light">favorites</a>      </div>
+
+</div>
+</body>
+</html>
+
+<router-outlet></router-outlet>

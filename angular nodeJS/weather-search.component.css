@@ -1,0 +1,16 @@
+.currentDiv{ background:#83cbf5; width:500px; border:1px solid #777; padding:10px; padding:  20px 20px 0px ;  }
+ul.currentIcon{ width:100%; list-style-type: none;}
+ul.currentIcon li{ width: 10.66%;   display: inline-block;  margin: 0 3%;}
+.CLogo img{ width:80px; }
+.modal-header{background: #5b87a5;}
+.modal-body{background:#92cbf1; padding:0 3rem 1rem;}
+.detailsWeather{}
+.detailsWeather p{ margin:0; font-size: 1rem;  font-weight: 600;}
+.detailsWeather p span{}
+.iconFa{background: #f7f8fb !important;    padding: 16px;    margin: 0 2px;}
+.iconFa .fa{ font-size: 36px;}
+.fa-twitter{ color:#01a3df}
+.iconFa .fa-star-o{ font-size:16px;}
+*{box-sizing: border-box;}
+.linkaV{ position: absolute;right: 12px;    top: -9px;}
+.apwB{Position:relative;}

@@ -1,0 +1,5 @@
+span.required{
+    color:red;
+}
+.btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle{background:#4a87a6; color:#fff;}
+bfv-messages{ margin-left: 33.33% !important;}

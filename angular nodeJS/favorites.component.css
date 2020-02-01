@@ -1,0 +1,25 @@
+.tableImage{ width:30px;}
+.FAtb{width: 1000px;  margin: 100px auto;}
+.table thead {
+    background: #4a87a6;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #68a1c2;
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #83cbf5;
+}
+.favDel{padding: 7px 10px;    background: #fff;    border-radius: 4px;}.favDel .fa{ color:#d99502;}
+
+.table td, .table th{ text-align: center;}
+.table thead th{ border-bottom:0;}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #abb3bb;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(171, 179, 187);
+}
+.cityLogvo{ font-weight: bold; color: #0057b5;}

@@ -1,0 +1,180 @@
+
+
+<div class="container apwB">
+  <div class="linkaV">
+      <a href="https://twitter.com/intent/tweet?text=“The current temperature at {{currentWeather.timezone}} is {{currentWeather.currently.temperature}} &#8457;. The weather conditions are {{currentWeather.currently.summary}}.#CSCI571WeatherSearch
+      #CSCI571WeatherSearch" target="_blank" class="iconFa"><i class="fa fa-twitter" aria-hidden="true"></i>
+    </a>
+      <a  class="iconFa"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+  </div>
+   
+  <tabset>
+    <tab heading="Current" id="tab1">
+
+
+        <div class="currentDiv mx-auto mt-4 mb-4">
+            <div class="col-md-12 ">
+            <div class="col-md-7">
+              <h2>{{city}}</h2>
+              <h3><span>{{currentWeather.timezone}}</span></h3>
+              <h4> <span>{{currentWeather.currently.temperature}}</span> &#8457; </h4>
+              <h5> {{currentWeather.currently.summary}}</h5>
+            </div>
+            <div class="col-md-5 CLogo">
+                  
+            </div>
+        </div>
+        <div class="col-md-12">
+            <ul class="currentIcon">
+              <li>
+                <img src = 'https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-16-512.png' alt="icon" class="img-fluid" data-toggle="tooltip" title="Humidity">
+                <p> {{currentWeather.currently.humidity}}</p>
+              </li>
+              <li>
+                  <img src = 'https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-512.png' alt="icon" class="img-fluid" data-toggle="tooltip" title="Pressure">
+                  <p> {{currentWeather.currently.pressure}}</p>
+                </li>
+                <li>
+                    <img src = 'https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-27-512.png' alt="icon" class="img-fluid" data-toggle="tooltip" title="Wind Speed">
+                    <p>{{currentWeather.currently.windSpeed}}</p>
+                  </li>
+                  <li>
+                      <img src = 'https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-30-512.png' alt="icon" class="img-fluid" data-toggle="tooltip" title="Visibility">
+                      <p>{{currentWeather.currently.visibility}}</p>
+                    </li>
+                    <li>
+                        <img src = 'https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-28-512.png' alt="icon" class="img-fluid" data-toggle="tooltip" title="Cloud Cover">
+                        <p>{{currentWeather.currently.cloudCover}}</p>
+                      </li>
+                      <li>
+                          <img src = 'https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-24-512.png' alt="icon" class="img-fluid" data-toggle="tooltip" title="Ozone">
+                          <p>{{currentWeather.currently.ozone}}</p>
+                        </li>
+
+            </ul>
+
+        </div>
+
+      </div>
+
+    </tab>
+    <tab heading="Hourly">
+        <br/><br/>
+            <select class="browser-default custom-select" id="HourlySelect"  (change)="changeChart($event)" style="width: 25%;"> 
+                <option value="temperature" selected>Temperature</option>
+                <option value="pressure">Pressure</option>
+                <option value="humidity">Humidity</option>
+                <option value="ozone">Ozone</option>
+                <option value="visibility">Visibility</option>
+                <option value="windSpeed">Wind Speed</option>
+              </select>
+            <br/>
+            <div>
+                <div style="display: block" id="temperature" *ngIf="selectedHourly=='temperature'">
+                  <canvas baseChart
+                          [datasets]="barChartData1"
+                          [labels]="barChartLabels"
+                          [options]="barChartOptions"
+                          [legend]="barChartLegend"
+                          [chartType]="barChartType"
+                          
+                          
+                       >
+                  </canvas>
+                </div>
+                <div style="display: block" id="pressure" *ngIf="selectedHourly=='pressure'">
+                    <canvas baseChart
+                            [datasets]="barChartData2"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType"
+                       >
+                    </canvas>
+                  </div>
+                  <div style="display: block" id="humidity"  *ngIf="selectedHourly=='humidity'">
+                      <canvas baseChart 
+                              [datasets]="barChartData3"
+                              [labels]="barChartLabels"
+                              [options]="barChartOptions"
+                              [legend]="barChartLegend"
+                              [chartType]="barChartType">
+                      </canvas>
+                    </div>
+                    <div style="display: block" id="ozone" *ngIf="selectedHourly=='ozone'">
+                        <canvas baseChart 
+                                [datasets]="barChartData4"
+                                [labels]="barChartLabels"
+                                [options]="barChartOptions"
+                                [legend]="barChartLegend"
+                                [chartType]="barChartType">
+                        </canvas>
+                      </div>
+                      <div style="display: block" id="visibility" *ngIf="selectedHourly=='visibility'">
+                          <canvas baseChart
+                                  [datasets]="barChartData5"
+                                  [labels]="barChartLabels"
+                                  [options]="barChartOptions"
+                                  [legend]="barChartLegend"
+                                  [chartType]="barChartType">
+                          </canvas>
+                        </div>
+                        <div style="display: block" id="windSpeed" *ngIf="selectedHourly=='windSpeed'">
+                            <canvas baseChart
+                                    [datasets]="barChartData6"
+                                    [labels]="barChartLabels"
+                                    [options]="barChartOptions"
+                                    [legend]="barChartLegend"
+                                    [chartType]="barChartType">
+                            </canvas>
+                          </div>
+              </div>
+    </tab>
+    <tab heading="Weekly">
+            <div id="weeklyChart" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+
+            <ng-template #template>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left" id="mdate"></h4>
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body ">
+                    <h2 id="mcity">{{city}}</h2>
+                    <div class="row">
+                    <div class="col-md-8">
+                      <h4> <span id="mtemprature">50</span> &#8457; </h4>
+                      <h5 id="msummary"> Mostly Cloudy</h5>
+                    </div>
+                    <div class="col-md-4 CLogo" id="mlogo">
+                      <img src="../../assets/images/weather-icon.png" class="img-fluid" alt="logo-icon">
+      
+                    </div>
+                </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-6 offset-md-6 detailsWeather ">
+                    <p>Precipitation:<span id="mprep"> 0</span></p>
+                    <p>Chance of Rain:<span id="mchoR"> 2%</span></p>
+                    <p>Wind Speed:<span id="mws"> 3.86mph</span></p>
+                    <p>Humidity:<span id="mHumi"> 93%</span></p>
+                    <p>Visibility:<span id="mVisi"> 10 miles</span></p>
+      
+                </div>
+              </div>
+                </div>
+              </ng-template>
+
+            
+            <div (change)="loadpopup($event,template)" style="display: none;" id="dumy" data-lat="" data-lng="" data-time="">
+                <input type="hidden" name="lat" id="lat" >
+                <input type="hidden" name="lng" id="lng">
+                <input type="hidden" name="time" id="time">
+            </div>
+    </tab>
+  </tabset>
+
+  
+</div>
+
